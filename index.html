@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEasy - Your Online Shopping Destination</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand fs-3" href="index.html">
+                <span class="text-primary">E</span><span class="text-danger">a</span><span class="text-warning">s</span><span class="text-success">y</span><span class="text-secondary">Shop</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./views/product.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./views/cart.html">Cart</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link" href="./views/login.html">Login</a>
+                    </li>
+                    <li class="nav-item register">
+                        <a class="nav-link" href="/views/register.html">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Welcome to ShopEasy</h1>
+            <p class="lead">Discover the best deals on your favorite products!</p>
+            <a href="./views/product.html" class="btn btn-lg mt-3" style="background-color:#758173;">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Featured Products</h2>
+            <div class="row" id="product-list">
+                <!-- Products will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About ShopEasy</h5>
+                    <p>Your one-stop online shopping destination for quality products at unbeatable prices.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="./index.html" class="text-white">Home</a></li>
+                        <li><a href="./views/product.html" class="text-white">Products</a></li>
+                        <li><a href="./views/cart.html" class="text-white">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: support@shopeasy.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>&copy; 2025 <span class="text-primary">E</span><span class="text-danger">a</span><span class="text-warning">s</span><span class="text-success">y</span><span style="color:#8fa38a">Shop</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        // Sample product data
+        const products = [
+            { id: 1, name: "Satin Long Sleeves Shirt", price: 18.95, image: "https://zandokh.com/image/cache/catalog/products/2025-07/12225041240/ZANDO14.07.20250008-cr-450x672.jpg" },
+            { id: 2, name: "Silk Long Sleeves Shirt", price: 47.95, image: "https://zandokh.com/image/cache/catalog/products/2025-07/3212506003/Untitled%20Session0716-cr-450x672.jpg" },
+            { id: 3, name: "Slim Fit T-Shirts", price: 10.59, image: "https://zandokh.com/image/cache/catalog/products/2024-11/2222411987/Slim-Fit-T-Shirts%20(1)-cr-450x672.jpg" },
+            { id: 4, name: "Flared Fitted Trousers", price: 37.95, image: "https://zandokh.com/image/cache/catalog/products/2025-07/3222503520/Untitled%20Session0697-cr-450x672.jpg" }
+        ];
+
+        // Function to render products
+        function renderProducts() {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = '';
+            products.forEach(product => {
+                const productCard = `
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="card product-card">
+                            <img src="${product.image}" class="card-img-top product-img" style="height:450px;object-fit:cover;" alt="${product.name}">
+                            <div class="card-body">
+                                <h5 class="card-title">${product.name}</h5>
+                                <p class="card-text" style="color:#3c433b;">$${product.price.toFixed(2)}</p>
+                                <a href="#" class="btn" style="background-color:#a9c5a0;color:#1f241f;">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productList.innerHTML += productCard;
+            });
+        }
+
+        // Call renderProducts on page load
+        document.addEventListener('DOMContentLoaded', renderProducts);
+    </script>
+</body>
+</html>

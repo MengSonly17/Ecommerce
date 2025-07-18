@@ -1,0 +1,29 @@
+body {
+  font-family: "Arial", sans-serif;
+}
+.hero-section {
+  /* background: linear-gradient(90deg, rgba(19, 95, 171, 1) 0%, rgba(3, 133, 78, 1) 50%, rgba(186, 232, 224, 1) 100%); */
+  background: linear-gradient(90deg, rgba(60, 67, 59, 1) 0%, rgba(169, 197, 160, 1) 50%, rgba(198, 222, 198, 1) 100%);
+  color: white;
+  padding: 150px 0;
+  text-align: center;
+}
+.product-card {
+  transition: transform 0.3s;
+}
+.product-card:hover {
+  transform: translateY(-10px);
+}
+.product-img {
+  height: 200px;
+  object-fit: cover;
+}
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+.footer {
+  background-color: #758173;
+  color: white;
+  padding: 40px 0;
+}

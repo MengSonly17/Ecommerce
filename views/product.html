@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopEasy - Products</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../styles/navbar.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+        .navbar-brand {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 10px;
+            transition: transform 0.3s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .rating {
+            color: #f4c430;
+        }
+        .btn-add-cart {
+            background-color: #1b7a26;
+            color: white;
+        }
+        .btn-add-cart:hover {
+            background-color: #2bc63d;
+        }
+        .footer {
+            background-color: #758173;
+            color: white;
+            padding: 40px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top py-3">
+        <div class="container">
+            <a class="navbar-brand fs-3" href="/index.html">
+                <span class="text-primary">E</span><span class="text-danger">a</span><span class="text-warning">s</span><span class="text-success">y</span><span class="text-secondary">Shop</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./product.html">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./cart.html">Cart</a>
+                    </li>
+                    <li class="nav-item" >
+                        <a class="nav-link" href="./login.html">Login</a>
+                    </li>
+                    <li class="nav-item register">
+                        <a class="nav-link" href="./register.html">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Product Listing Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Products</h2>
+            <div class="row" id="product-list">
+                <!-- Products will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>About ShopEasy</h5>
+                    <p>Your one-stop online shopping destination for quality products at unbeatable prices.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="/index.html" class="text-white">Home</a></li>
+                        <li><a href="./product.html" class="text-white">Products</a></li>
+                        <li><a href="./cart.html" class="text-white">Cart</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contact Us</h5>
+                    <p>Email: support@shopeasy.com</p>
+                    <p>Phone: (123) 456-7890</p>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <p>&copy; 2025 <span class="text-primary">E</span><span class="text-danger">a</span><span class="text-warning">s</span><span class="text-success">y</span><span class="text-secondary">Shop</span>. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
+    <script>
+        // Sample product data
+        const products = [
+            { id: 1, name: "Ruched Blouse", category: "women's clothing", price: 16.59, image: "https://zandokh.com/image/catalog/products/2025-07/22225051432/ZANDO14.07.20251492.jpg", rating: 4.9, reviews: 120 },
+            { id: 2, name: "Satin Tank Top", category: "women's clothing", price: 15.95, image: "https://zandokh.com/image/catalog/products/2025-07/12225041241/ZANDO14.07.20251582%20copy.jpg", rating: 4.1, reviews: 259 },
+            { id: 3, name: "Cropped T-Shirt", category: "women's clothing", price: 5.59, image: "https://zandokh.com/image/catalog/products/2025-07/12225041304/Untitled%20Session1068.jpg", rating: 4.7, reviews: 500 },
+            { id: 4, name: "Loose Fit T-Shirt With Embroidery", category: "women's clothing", price: 7.41, image: "https://zandokh.com/image/catalog/products/2025-01/22225011179/ZANDO270320259632.jpg", rating: 2.1, reviews: 430 },
+            { id: 5, name: "Off Shoulder Shirts", category: "women's clothing", price: 16.59, image: "https://zandokh.com/image/catalog/products/2025-07/22225031401%20Replace/Untitled%20Session0897.jpg", rating: 4.6, reviews: 400 },
+            { id: 6, name: "Solid Gold Petite MicropaveLoose Fitted T-Shirts With Embroidery", category: "women's clothing", price: 13.59, image: "https://zandokh.com/image/catalog/products/2025-05/22224121159/ZANDO0205202521291.jpg", rating: 3.9, reviews: 70 }
+        ];
+
+        // Function to render products
+        function renderProducts() {
+            const productList = document.getElementById('product-list');
+            productList.innerHTML = '';
+            products.forEach(product => {
+                const productCard = `
+                    <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 mb-4">
+                        <div class="product-card h-100 py-3 px-3">
+                            <img src="${product.image}" 
+                                class="img-fluid product-img m-0 mb-3 rounded object-fit-cover" 
+                                alt="${product.name}"
+                            >
+                            <h5 class="cart-title title py-2 p-0 m-0 overflow-hidden" style="white-space: nowrap;width:220px;text-overflow: ellipsis;">${product.name}</h5>
+                            <p class="text-muted m-0">Category: <em>${product.category}</em> </p>
+                            <p class="text-success m-0 fs-4 my-2">$${product.price.toFixed(2)}</p>
+                            <div class="my-2" style="font-size:16px">
+                                <span class="badge bg-warning text-dark">${product.rating}</span>    
+                                <span class="text-muted">(${product.reviews} reviews)</span>    
+                            </div
+                            <div>
+                                <button class="btn btn-add-cart mt-2" style="background-color:#758173;">Add to Cart</button>
+                                <a href="#" class="btn btn-outline-secondary ms-2 mt-2">View Detail</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                productList.innerHTML += productCard;
+            });
+        }
+
+        // Call renderProducts on page load
+        document.addEventListener('DOMContentLoaded', renderProducts);
+    </script>
+</body>
+</html>

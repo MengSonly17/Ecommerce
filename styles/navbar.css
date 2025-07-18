@@ -1,0 +1,16 @@
+.register {
+    margin-left:15px;
+}
+.register a.nav-link {
+    /* background-color: #8ff89f ; */
+    background-color: #a9c5a0 ;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+}
+.register a.nav-link:hover {
+    background-color: #1f241f;
+    color:#c6dec6;
+}
+.navbar {
+    /* background-color: #8fa38a !important; */
+}
